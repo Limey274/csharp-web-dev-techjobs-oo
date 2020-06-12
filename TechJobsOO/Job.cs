@@ -49,10 +49,12 @@ namespace TechJobsOO
             return HashCode.Combine(Id, Name, EmployerName, EmployerLocation, JobType, JobCoreCompetency);
         }
 
+        //public override string ToString()
+        //{
+                
+        //    return $"ID: {Job} \n+ " (Credits: " + NumberOfCredits + ", GPA: " + Gpa + ")";
+        //} 
 
-
-
-
-        // TODO: Generate Equals() and GetHashCode() methods.
-    }
+            // TODO: Generate Equals() and GetHashCode() methods.
+        }
 }
