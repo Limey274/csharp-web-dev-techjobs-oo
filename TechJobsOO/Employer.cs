@@ -1,7 +1,7 @@
 ﻿using System;
 namespace TechJobsOO
 {
-    public class Employer
+    public class Employer 
     {
         public int Id { get; }
         private static int nextId = 1;
