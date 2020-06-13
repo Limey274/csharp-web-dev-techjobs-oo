@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Reflection.Metadata.Ecma335;
 
 namespace TechJobsOO
 {
@@ -43,18 +44,54 @@ namespace TechJobsOO
                    EqualityComparer<PositionType>.Default.Equals(JobType, job.JobType) &&
                    EqualityComparer<CoreCompetency>.Default.Equals(JobCoreCompetency, job.JobCoreCompetency);
         }
+ // TODO: Generate Equals() and GetHashCode() methods.
+
 
         public override int GetHashCode()
         {
-            return HashCode.Combine(Id, Name, EmployerName, EmployerLocation, JobType, JobCoreCompetency);
+            return HashCode.Combine(Id);
         }
 
-        //public override string ToString()
-        //{
-                
-        //    return $"ID: {Job} \n+ " (Credits: " + NumberOfCredits + ", GPA: " + Gpa + ")";
-        //} 
+     
 
-            // TODO: Generate Equals() and GetHashCode() methods.
-        }
+        public override string ToString()
+        {
+
+            if(Name == null && EmployerName==null && EmployerLocation ==null&& JobType == null && JobCoreCompetency == null)
+            {
+                return "Job doesn't exist";
+            }
+
+            if(Name == "")
+            {
+                Name = "Data not available";
+            }
+
+            if (EmployerName.Value == "")
+            {
+                EmployerName.Value = "Data not available";
+            }
+
+            if (EmployerLocation.Value == "")
+            {
+                EmployerLocation.Value = "Data not available";
+            }
+
+            if (JobType.Value == "")
+            {
+                JobType.Value = "Data not available";
+            }
+
+            if (JobCoreCompetency.Value == "")
+            {
+                JobCoreCompetency.Value = "Data not available";
+            }
+
+            string testOutput = $"\nID:___{Id}_____\nName: __{Name}_____\nEmployer: __{EmployerName.Value}_____\nLocation: __{EmployerLocation.Value}_____\nPosition Type: ___{JobType.Value}____\nCore Competency: ___{JobCoreCompetency.Value}____;\n";
+
+            return testOutput;
+        } 
+
+          
+     }
 }

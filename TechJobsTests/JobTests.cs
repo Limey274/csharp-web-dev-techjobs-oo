@@ -44,9 +44,29 @@ namespace TechJobsTests
             Assert.AreNotEqual(test_job, test_job2); //JOBS ARE NOT EQUAL
         }
 
+        public void TestToStringWithNewLines()
+        {
+            Job test_job = new Job("I am a job", new Employer("JobPlace"), new Location("job location"), new PositionType("working job"), new CoreCompetency("Hardwork"));
+            string testString = test_job.ToString();
+            char firstChar = testString[0];
+            char lastChar = testString[testString.Length - 1];
 
+            Assert.IsTrue(firstChar == lastChar);
+            
+            //Job test_job = new Job("I am a job", new Employer("JobPlace"), new Location("job location"), new PositionType("working job"), new CoreCompetency("Hardwork"));
+            //return $"ID:___{test_job.Id}_____\nName: __{test_job.Name}_____\nEmployer: __{test_job.EmployerName}_____\nLocation: __{test_job.EmployerLocation}_____\nPosition Type: ___{test_job.JobType}____\nCore Competency: ___{test_job.JobCoreCompetency}____;";
 
+        }
 
+        [TestMethod]
+        public void TestToStringHasLables()
+        {
+            Job test_job = new Job("I am a job", new Employer("JobPlace"), new Location("job location"), new PositionType("working job"), new CoreCompetency("Hardwork"));
+
+            string testOutput = $"\nID:___{test_job.Id}_____\nName: __{test_job.Name}_____\nEmployer: __{test_job.EmployerName.Value}_____\nLocation: __{test_job.EmployerLocation.Value}_____\nPosition Type: ___{test_job.JobType.Value}____\nCore Competency: ___{test_job.JobCoreCompetency.Value}____;\n";
+
+            Assert.AreEqual(testOutput, test_job.ToString());
+        }
 
 
 
